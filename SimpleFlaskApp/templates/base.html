@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ PageTitle }}</title>
+</head>
+<body>
+    <h1>{{ PageTitle }}</h1>
+    <hr>
+    <p>
+        <a href="/">Main page</a> |
+        <a href="/math/add">Add two numbers</a> |
+        <a href="/random_uuid">Generate random UUID</a> |
+        {% if allowed_currencies %}
+            Exchange rates:
+            {% for curr in allowed_currencies %}
+                <a href="/exchange_rates/{{ curr }}">{{ curr }}</a>
+            {% endfor %}
+        {% endif %}
+    <hr>
+    {% block content %}{% endblock %}
+    <hr>
+    <p>Author: {{ Author }}, email: <a href="mailto:{{ AuthorEmail }}">{{ AuthorEmail }}</a></p>
+    <style type="text/css">
+        .table{
+            border: 1px solid #eee;
+            table-layout: fixed;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 20px;
+        }
+        .table th {
+            font-weight: bold;
+            padding: 5px;
+            background: #efefef;
+            border: 1px solid #dddddd;
+        }
+        .table caption {
+            font-weight: bold;
+        }
+        .table td{
+            padding: 5px 10px;
+            border: 1px solid #eee;
+            text-align: left;
+        }
+        .table tbody tr:nth-child(odd){
+            background: #fff;
+        }
+        .table tbody tr:nth-child(even){
+            background: #F7F7F7;
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>
+  <table class="table">
+    <caption>Exchange rates for: {{ currency }}</caption>
+    <tr>
+      <th>Name</th>
+      <th>Rate</th>
+    </tr>
+    {% for key, value in rates.items() %}
+    <tr>
+      <td>{{ key }}</td>
+      <td>{{ value }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</p>
+{% endblock %}

@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<p>
+  Here is the main page of simple Flask application. Available actions should be listed above. Enjoy :-)
+  <hr>
+  <table class="table">
+    <caption>System info</caption>
+    <tr>
+      <th>Parameter</th>
+      <th>Value</th>
+    </tr>
+    <tr>
+      <td>OS</td>
+      <td>{{ sys.platform }}</td>
+    </tr>
+    <tr>
+      <td>Python version</td>
+      <td>{{ sys.version }}</td>
+    </tr>
+    <tr>
+      <td>Python interpreter path</td>
+      <td>{{ sys.executable }}</td>
+    </tr>
+  </table>
+  <br>
+  <table class="table">
+    <caption>Environment variables</caption>
+    <tr>
+      <th>Name</th>
+      <th>Value</th>
+    </tr>
+    {% for key, value in os.environ.items() %}
+    <tr>
+      <td>{{ key }}</td>
+      <td>{{ value }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+</p>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form action="/math/add" method="post">
+    <p>Enter the first number:</p>
+    <input type="text" name="value1" id="value1" value="1">
+    <p>Enter the second number:</p>
+    <input type="text" name="value2" id="value2" value="2">
+    <p><button type="submit" type="button">Calc the result</button></p>
+</form>
+{% endblock %}
