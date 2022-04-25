@@ -9,6 +9,8 @@ encoding = 'utf-8'
 topic = 'simple-kafka'
 producer = KafkaProducer(bootstrap_servers=['kafka:9092'])
 
+print(f"'{topic}' producer is up and running...")
+
 idx = 1
 while True:
     msg = f"Random message {idx} from kafka producer"

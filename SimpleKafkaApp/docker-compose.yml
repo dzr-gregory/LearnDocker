@@ -5,6 +5,7 @@ networks:
     driver: bridge
 
 services:
+
   zookeeper:
     image: docker.io/bitnami/zookeeper:3.8
     ports:
@@ -15,6 +16,7 @@ services:
       - ALLOW_ANONYMOUS_LOGIN=yes
     networks:
       - app
+
   kafka:
     image: docker.io/bitnami/kafka:3.1
     ports:
@@ -36,9 +38,7 @@ services:
       context: ./app
     networks:
       - app
-    command: "sleep 10 && /app/kafka-producer.py"
-    links:
-      - kafka
+    entrypoint: ["python", "-u", "/app/kafka-producer.py"]
     depends_on:
       - kafka
 
@@ -47,9 +47,7 @@ services:
       context: ./app
     networks:
       - app
-    command: "sleep 10 && /app/kafka-consumer.py"
-    links:
-      - kafka
+    entrypoint: ["python", "-u", "/app/kafka-consumer.py"]
     depends_on:
       - kafka
 
